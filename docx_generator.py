@@ -128,3 +128,67 @@ def generate_risk_register_docx(project_name, data):
     doc.save(f)
     f.seek(0)
     return f
+
+def generate_stakeholder_analysis_docx(data: dict, **kwargs):
+    """Generates a .docx file for the Stakeholder Analysis."""
+    document = Document()
+    # You could optionally use the project_name from kwargs here if needed
+    # project_name = kwargs.get("project_name", "Project")
+    document.add_heading('Stakeholder Analysis', level=1)
+    
+    stakeholders = data.get('stakeholders', [])
+    if not stakeholders:
+        document.add_paragraph("No stakeholder data available.")
+    else:
+        table = document.add_table(rows=1, cols=5)
+        table.style = 'Table Grid'
+        hdr_cells = table.rows[0].cells
+        hdr_cells[0].text = 'Name'
+        hdr_cells[1].text = 'Role'
+        hdr_cells[2].text = 'Interest'
+        hdr_cells[3].text = 'Influence'
+        hdr_cells[4].text = 'Engagement Strategy'
+        
+        for item in stakeholders:
+            row_cells = table.add_row().cells
+            row_cells[0].text = item.get('name', '')
+            row_cells[1].text = item.get('role', '')
+            row_cells[2].text = item.get('interest', '')
+            row_cells[3].text = item.get('influence', '')
+            row_cells[4].text = item.get('engagement_strategy', '')
+            
+    doc_io = BytesIO()
+    document.save(doc_io)
+    doc_io.seek(0)
+    return doc_io
+
+def generate_communication_plan_docx(data: dict, **kwargs):
+    """Generates a .docx file for the Communication Plan."""
+    document = Document()
+    document.add_heading('Project Communication Plan', level=1)
+    
+    communications = data.get('communications', [])
+    if not communications:
+        document.add_paragraph("No communication plan data available.")
+    else:
+        table = document.add_table(rows=1, cols=5)
+        table.style = 'Table Grid'
+        hdr_cells = table.rows[0].cells
+        hdr_cells[0].text = 'Stakeholder'
+        hdr_cells[1].text = 'Information'
+        hdr_cells[2].text = 'Method'
+        hdr_cells[3].text = 'Frequency'
+        hdr_cells[4].text = 'Owner'
+        
+        for item in communications:
+            row_cells = table.add_row().cells
+            row_cells[0].text = item.get('stakeholder', '')
+            row_cells[1].text = item.get('information', '')
+            row_cells[2].text = item.get('method', '')
+            row_cells[3].text = item.get('frequency', '')
+            row_cells[4].text = item.get('owner', '')
+
+    doc_io = BytesIO()
+    document.save(doc_io)
+    doc_io.seek(0)
+    return doc_io

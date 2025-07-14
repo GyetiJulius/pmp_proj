@@ -5,6 +5,7 @@ from enum import Enum
 
 from .state import ProjectInput, PROJECT_DB
 from .graph import app_graph
+# Import the new generator functions
 from . import docx_generator
 
 app = FastAPI(
@@ -13,20 +14,25 @@ app = FastAPI(
     description="Create a project to generate all documents, then preview or download them individually."
 )
 
-# Define all supported document types
+# Add the new document types to the Enum
 class DocumentType(str, Enum):
     charter = "charter"
     scope = "scope"
     wbs = "wbs"
     risk_register = "risk-register"
+    stakeholder_analysis = "stakeholder-analysis"
+    communication_plan = "communication-plan"
 
-# Map document types to their generation functions
+# Add the new mappings to the dictionary
 DOC_GENERATOR_MAP = {
     DocumentType.charter: docx_generator.generate_charter_docx,
     DocumentType.scope: docx_generator.generate_scope_docx,
     DocumentType.wbs: docx_generator.generate_wbs_docx,
     DocumentType.risk_register: docx_generator.generate_risk_register_docx,
+    DocumentType.stakeholder_analysis: docx_generator.generate_stakeholder_analysis_docx,
+    DocumentType.communication_plan: docx_generator.generate_communication_plan_docx,
 }
+
 
 @app.post("/projects", status_code=201, tags=["Project"])
 def create_project(project_input: ProjectInput = Body(...)):

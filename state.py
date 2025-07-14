@@ -63,6 +63,30 @@ class ScheduleOutput(V1BaseModel):
     project_start_date: str = Field(description="The calculated start date of the entire project.")
     project_end_date: str = Field(description="The calculated end date of the entire project.")
 
+# --- Pydantic Models for Stakeholder Analysis ---
+class StakeholderItem(V1BaseModel):
+    name: str = Field(description="The name of the stakeholder or stakeholder group.")
+    role: str = Field(description="Their role in the project (e.g., Project Sponsor, End User).")
+    interest: str = Field(description="A brief description of their primary interest or concern in the project.")
+    influence: str = Field(description="Their level of influence on the project (e.g., High, Medium, Low).")
+    engagement_strategy: str = Field(description="The strategy for engaging with this stakeholder (e.g., Manage Closely, Keep Informed).")
+
+class StakeholderAnalysisOutput(V1BaseModel):
+    """The complete stakeholder analysis document."""
+    stakeholders: List[StakeholderItem]
+
+# --- Pydantic Models for Communication Plan ---
+class CommunicationItem(V1BaseModel):
+    stakeholder: str = Field(description="The stakeholder or group to be communicated with.")
+    information: str = Field(description="The type of information to be communicated (e.g., Project Status Update, Risk Alerts).")
+    method: str = Field(description="The method of communication (e.g., Email, Weekly Meeting, Dashboard).")
+    frequency: str = Field(description="How often the communication will occur (e.g., Weekly, Monthly, As Needed).")
+    owner: str = Field(description="The person responsible for the communication (e.g., Project Manager, Tech Lead).")
+
+class CommunicationPlanOutput(V1BaseModel):
+    """The complete project communication plan."""
+    communications: List[CommunicationItem]
+
 # --- Main Graph State ---
 class GraphState(TypedDict):
     project_id: str
