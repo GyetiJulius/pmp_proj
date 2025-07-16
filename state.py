@@ -13,9 +13,6 @@ class ProjectInput(V2BaseModel):
     budget: Optional[float] = None
     timeline_weeks: Optional[int] = None
 
-# --- In-memory "database" to store project data ---
-PROJECT_DB: Dict[str, "GraphState"] = {}
-
 # --- Pydantic V1 Models for internal LangChain use ---
 class CharterOutput(V1BaseModel):
     project_title: str = Field(description="The official title of the project.")

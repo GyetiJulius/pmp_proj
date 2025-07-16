@@ -19,7 +19,7 @@ def generate_stakeholder_analysis_node(state: GraphState):
         return {"documents": current_docs}
 
     parser = JsonOutputParser(pydantic_object=StakeholderAnalysisOutput)
-    llm = ChatCohere(model="command-r-plus", api_key=get_cohere_api_key())
+    llm = ChatCohere(model="command-a-03-2025", api_key=get_cohere_api_key())
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", "You are a senior project manager specializing in stakeholder relations. For the given list of stakeholders, create a detailed analysis. For each stakeholder, you must infer their likely role, interest, influence level, and a suitable engagement strategy. Respond with a JSON object that strictly follows this format:\n{format_instructions}"),
