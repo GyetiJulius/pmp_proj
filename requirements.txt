@@ -1,0 +1,19 @@
+# API Framework
+fastapi
+
+# ASGI Server to run FastAPI
+uvicorn[standard]
+
+# Core AI and Agentic Workflow Libraries
+langchain
+langchain-cohere
+langgraph
+
+# Redis client for connecting to Upstash
+redis
+
+# For generating .docx files
+python-docx
+
+# For loading environment variables from .env file
+python-dotenv
