@@ -8,6 +8,7 @@ uvicorn[standard]
 langchain
 langchain-cohere
 langgraph
+langchain-tavily
 
 # Redis client for connecting to Upstash
 redis
