@@ -9,10 +9,10 @@ from fastapi import FastAPI, HTTPException, Path, Body, status, BackgroundTasks
 from fastapi.responses import Response
 from enum import Enum
 
-from .state import ProjectInput
-from .redis_client import get_project_state, set_project_state
-from . import docx_generator
-from .graph import app_graph # Import the graph
+from state import ProjectInput
+from redis_client import get_project_state, set_project_state
+import docx_generator
+from graph import app_graph # Import the graph
 
 app = FastAPI(
     title="PMP Documentation Assistant API",

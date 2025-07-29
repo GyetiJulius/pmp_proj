@@ -4,8 +4,8 @@ from langchain_tavily import TavilySearch
 from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate
 
-from ..state import GraphState
-from ..config import get_cohere_api_key, get_tavily_api_key
+from state import GraphState
+from config import get_cohere_api_key, get_tavily_api_key
 
 def generate_risk_register_node(state: GraphState):
     """

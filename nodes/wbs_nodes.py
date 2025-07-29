@@ -6,8 +6,8 @@ from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 
-from ..state import GraphState, WBSOutput
-from ..config import get_cohere_api_key
+from state import GraphState, WBSOutput
+from config import get_cohere_api_key
 
 # --- Keep the existing prep functions ---
 def prepare_for_next_deliverable_node(state: GraphState):

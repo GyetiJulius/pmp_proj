@@ -3,6 +3,7 @@ fastapi
 
 # ASGI Server to run FastAPI
 uvicorn[standard]
+gevent
 
 # Core AI and Agentic Workflow Libraries
 langchain

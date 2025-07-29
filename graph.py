@@ -1,5 +1,4 @@
 from langgraph.graph import StateGraph, END
-from .state import GraphState
 
 from .nodes.generation_nodes import generate_charter_node, generate_scope_node
 from .nodes.wbs_nodes import (
@@ -9,10 +8,12 @@ from .nodes.wbs_nodes import (
     compile_wbs_node,
     should_continue_wbs_loop,
 )
-from .nodes.risk_nodes import generate_risk_register_node
-from .nodes.schedule_nodes import generate_schedule_node
-from .nodes.stakeholder_nodes import generate_stakeholder_analysis_node
-from .nodes.communication_nodes import generate_communication_plan_node
+from state import GraphState
+from nodes.generation_nodes import generate_charter_node, generate_scope_node
+from nodes.stakeholder_nodes import generate_stakeholder_analysis_node
+from nodes.wbs_nodes import generate_wbs_node
+from nodes.risk_nodes import generate_risk_register_node
+from nodes.communication_nodes import generate_communication_plan_node
 
 def build_graph():
     """Builds and compiles the agentic workflow graph with a correct WBS loop."""

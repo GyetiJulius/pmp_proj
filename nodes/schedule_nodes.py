@@ -5,8 +5,8 @@ from pydantic.v1 import BaseModel, Field
 from typing import List
 from langchain_core.output_parsers import JsonOutputParser # Import the parser
 
-from ..state import GraphState, GanttTask, ScheduleOutput
-from ..config import get_cohere_api_key
+from state import GraphState, GanttTask, ScheduleOutput
+from config import get_cohere_api_key
 
 # --- Pydantic model for the AI's duration estimation output ---
 class TaskDuration(BaseModel):

@@ -1,5 +1,5 @@
-from ..state import GraphState, CommunicationPlanOutput
-from ..config import get_cohere_api_key
+from state import GraphState, CommunicationPlanOutput
+from config import get_cohere_api_key
 from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
