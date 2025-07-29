@@ -1,8 +1,8 @@
 from langgraph.graph import StateGraph, END
 from nodes.schedule_nodes import generate_schedule_node
 
-from .nodes.generation_nodes import generate_charter_node, generate_scope_node
-from .nodes.wbs_nodes import (
+from nodes.generation_nodes import generate_charter_node, generate_scope_node
+from nodes.wbs_nodes import (
     setup_wbs_loop_node,
     prepare_for_next_deliverable_node,
     wbs_generation_agent,
