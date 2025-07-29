@@ -9,9 +9,11 @@ gevent
 langchain
 langchain-cohere
 langgraph
+langchain-tavily
 
 # Redis client for connecting to Upstash
 redis
+gevent
 
 # For generating .docx files
 python-docx
