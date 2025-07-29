@@ -10,6 +10,7 @@ gevent
 # Core AI and Agentic Workflow Libraries
 langchain==0.1.20
 langgraph==0.0.48
+langchain-tavily
 
 # THE FIX: Pin langchain-cohere to a specific modern version and REMOVE the cohere pin.
 # This allows pip to correctly resolve the dependency to cohere v5.x.
