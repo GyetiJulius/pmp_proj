@@ -8,6 +8,10 @@ gevent
 # Core AI and Agentic Workflow Libraries
 langchain
 langchain-cohere
+
+# This ensures compatibility with the current version of langchain-cohere.
+cohere<5
+
 langgraph
 langchain-tavily
 
