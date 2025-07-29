@@ -1,25 +1,25 @@
-# API Framework
-fastapi
+# --- Production Lock File v3 ---
+# These versions are pinned to ensure a stable and compatible deployment.
+# This version allows cohere v5 and uses a version of langchain-cohere that supports it.
 
-# ASGI Server to run FastAPI
-uvicorn[standard]
+# API Framework
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
 gevent
 
 # Core AI and Agentic Workflow Libraries
-langchain
-langchain-cohere
+langchain==0.1.20
+langgraph==0.0.48
 
-# This ensures compatibility with the current version of langchain-cohere.
-cohere>=4.0.0,<5.0.0
-
-langgraph
-langchain-tavily
+# THE FIX: Pin langchain-cohere to a specific modern version and REMOVE the cohere pin.
+# This allows pip to correctly resolve the dependency to cohere v5.x.
+langchain-cohere==0.1.5
 
 # Redis client for connecting to Upstash
-redis
+redis==5.0.4
 
 # For generating .docx files
-python-docx
+python-docx==1.1.2
 
 # For loading environment variables from .env file
-python-dotenv
+python-dotenv==1.0.1
