@@ -10,7 +10,7 @@ langchain
 langchain-cohere
 
 # This ensures compatibility with the current version of langchain-cohere.
-cohere<5
+cohere==5.16.0
 
 langgraph
 langchain-tavily
