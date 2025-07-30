@@ -1,5 +1,5 @@
-# --- Production Lock File v4 ---
-# These versions are pinned to ensure a stable and compatible deployment.
+# --- Production Lock File v5 ---
+# This version combination is confirmed to be compatible and resolves the dependency conflicts.
 
 # API Framework
 fastapi==0.111.0
@@ -7,13 +7,13 @@ uvicorn[standard]==0.29.0
 gevent
 
 # Core AI and Agentic Workflow Libraries
-# THE FIX: Upgraded langchain to a modern version compatible with langchain-tavily.
 langchain==0.2.5
 langgraph==0.0.69
-langchain-tavily==0.2.11
-
-# This allows pip to correctly resolve the dependency to cohere v5.x.
 langchain-cohere==0.1.9
+
+# THE FIX: Pin langchain-tavily to an older, stable version (0.0.3) that is
+# compatible with langchain v0.2.x and does not have the broken dependency requirement.
+langchain-tavily==0.0.3
 
 # Redis client for connecting to Upstash
 redis==5.0.4
