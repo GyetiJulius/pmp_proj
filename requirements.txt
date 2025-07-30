@@ -1,21 +1,12 @@
-# --- Stable Setup with Tavily and LangGraph ---
-
-# API Framework
 fastapi==0.111.0
 uvicorn[standard]==0.29.0
 gevent
 
-# Core AI and Agentic Workflow Libraries
 langchain==0.3.26
 langchain-tavily==0.2.5
+langgraph==0.2.28
 langchain-cohere==0.1.9
-langgraph==0.0.88   # ✅ Compatible with langchain-core >= 0.3.66
 
-# Redis client for connecting to Upstash
 redis==5.0.4
-
-# For generating .docx files
 python-docx==1.1.2
-
-# For loading environment variables from .env file
 python-dotenv==1.0.1
