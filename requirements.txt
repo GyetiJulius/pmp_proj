@@ -1,12 +1,26 @@
+# --- Production Lock File v6 (Final) ---
+# This version combination is confirmed to be compatible and stable.
+
+# API Framework
 fastapi==0.111.0
 uvicorn[standard]==0.29.0
 gevent
 
-langchain==0.3.26
-langchain-tavily==0.2.5
-langgraph==0.2.28
+# Core AI and Agentic Workflow Libraries
+langchain==0.2.5
+langgraph==0.0.69
 langchain-cohere==0.1.9
 
+
+# This avoids the broken dependencies in the standalone langchain-tavily package.
+langchain-community==0.2.5
+
+# Redis client for connecting to Upstash
 redis==5.0.4
+
+# For generating .docx files
 python-docx==1.1.2
+
+# For loading environment variables from .env file
 python-dotenv==1.0.1
+tavily-python

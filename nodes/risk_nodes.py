@@ -1,6 +1,6 @@
 import json
 import time
-from langchain_tavily import TavilySearch
+from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate
 
@@ -26,7 +26,7 @@ def generate_risk_register_node(state: GraphState):
     # Research common project risks
     print("---STEP 1: Researching common project risks---")
     try:
-        search_tool = TavilySearch(max_results=3, api_key=get_tavily_api_key())
+        search_tool = TavilySearchResults(max_results=3, api_key=get_tavily_api_key())
         search_query = f"common project risks and mitigation strategies for {project_name}"
         research_results = "\n\n".join(search_tool.invoke(search_query))
     except Exception as e:
