@@ -2,15 +2,18 @@ import redis
 import json
 import os
 from dotenv import load_dotenv
+import ssl
+from upstash_redis import Redis
 
 load_dotenv()
 
-REDIS_URL = os.getenv("UPSTASH_REDIS_URL")
+REDIS_URL = os.getenv("REDIS_URL")
 
 if not REDIS_URL:
     raise ValueError("Missing UPSTASH_REDIS_URL in .env file.")
 
-redis_client = redis.Redis.from_url(REDIS_URL)
+
+redis_client = Redis(url="https://worthy-cat-10544.upstash.io", token="ASkwAAIjcDFiOWRiYmRmZTQ2YTM0YWRjYTE4MmE3OTkxMDQzNjYzMnAxMA")
 
 def set_project_state(project_id: str, state: dict):
     """Stores the project state in Redis as a JSON string."""
