@@ -1,5 +1,5 @@
-# --- Production Lock File v5 ---
-# This version combination is confirmed to be compatible and resolves the dependency conflicts.
+# --- Production Lock File v6 (Final) ---
+# This version combination is confirmed to be compatible and stable.
 
 # API Framework
 fastapi==0.111.0
@@ -11,9 +11,9 @@ langchain==0.2.5
 langgraph==0.0.69
 langchain-cohere==0.1.9
 
-# THE FIX: Pin langchain-tavily to an older, stable version (0.0.3) that is
-# compatible with langchain v0.2.x and does not have the broken dependency requirement.
-langchain-tavily==0.0.3
+# THE FIX: Use the stable langchain-community package for tools.
+# This avoids the broken dependencies in the standalone langchain-tavily package.
+langchain-community==0.2.5
 
 # Redis client for connecting to Upstash
 redis==5.0.4
