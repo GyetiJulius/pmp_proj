@@ -13,7 +13,7 @@ if not REDIS_URL:
     raise ValueError("Missing UPSTASH_REDIS_URL in .env file.")
 
 
-redis_client = Redis(url="https://worthy-cat-10544.upstash.io", token="ASkwAAIjcDFiOWRiYmRmZTQ2YTM0YWRjYTE4MmE3OTkxMDQzNjYzMnAxMA")
+redis_client = Redis(url=os.getenv("UPSTASH_URL"), token=os.getenv("UPSTASH_TOKEN"))
 
 def set_project_state(project_id: str, state: dict):
     """Stores the project state in Redis as a JSON string."""
