@@ -1,4 +1,4 @@
-# --- Production Lock File (Tavily Version) ---
+# --- Stable Setup with Tavily and LangGraph ---
 
 # API Framework
 fastapi==0.111.0
@@ -6,10 +6,10 @@ uvicorn[standard]==0.29.0
 gevent
 
 # Core AI and Agentic Workflow Libraries
-langchain==0.3.26                # ✅ Required for langchain-tavily compatibility
-langgraph==0.0.69
+langchain==0.3.26
+langchain-tavily==0.2.5
 langchain-cohere==0.1.9
-langchain-tavily==0.2.5          # ✅ Stable version that works with langchain>=0.3.20,<0.4.0
+langgraph==0.0.88   # ✅ Compatible with langchain-core >= 0.3.66
 
 # Redis client for connecting to Upstash
 redis==5.0.4
