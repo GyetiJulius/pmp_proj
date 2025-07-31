@@ -1,9 +1,3 @@
-# THE DEFINITIVE FIX: Apply the gevent patch at the very top of the application entrypoint.
-# This ensures it is active in the Uvicorn child process spawned by the reloader.
-import gevent.monkey
-gevent.monkey.patch_all()
-# done
-
 import uuid
 from fastapi import FastAPI, HTTPException, Path, Body, status, BackgroundTasks
 from fastapi.responses import Response
@@ -20,7 +14,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# --- This is the background task logic, moved from Celery ---
+# --- This is the background task logic ---
 def run_project_graph(project_id: str, initial_state: dict):
     """
     This function runs in the background after the API response is sent.
@@ -59,7 +53,7 @@ DOC_GENERATOR_MAP = {
 }
 
 @app.post("/projects", status_code=status.HTTP_202_ACCEPTED, tags=["Project"])
-def create_project(project_input: ProjectInput, background_tasks: BackgroundTasks):
+async def create_project(project_input: ProjectInput, background_tasks: BackgroundTasks):
     """
     Accepts project parameters and starts the document generation process in the background.
     """
@@ -128,4 +122,3 @@ def download_document(project_id: str, doc_type: DocumentType):
         )
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Error generating document: {str(e)}")
-
